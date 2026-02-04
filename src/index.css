@@ -1,0 +1,32 @@
+
+
+@import "tailwindcss";
+
+/* class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* design tokens (replaces the inline tailwind.config object) */
+@theme {
+  /* colors */
+  --color-primary: #46ec13;
+  --color-background-light: #f6f8f6;
+  --color-background-dark: #142210;
+
+  /* fonts */
+  --font-display: "Manrope", sans-serif;
+
+  /* radii – DEFAULT → --radius-sm in v4 */
+  --radius-sm: 1rem;
+  --radius-lg: 2rem;
+  --radius-xl: 3rem;
+  --radius-full: 9999px;
+}
+
+/* dark-mode overrides */
+@layer theme {
+  :root, :host {
+    @variant dark {
+      --color-background-light: #142210;
+    }
+  }
+}
